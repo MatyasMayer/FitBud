@@ -1,11 +1,12 @@
 package cz.fitbud.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.List;
 
 @Entity
-@Table(name = "Exercises")
+@Table(name = "exercises")
 public class Exercise {
 
     @Id
@@ -15,6 +16,7 @@ public class Exercise {
     @Column(nullable = false)
     private String category;
 
+    @Column(columnDefinition = "TEXT")
     private String description;
 
     @Column(nullable = false)
@@ -23,15 +25,19 @@ public class Exercise {
     private String video;
 
     @ElementCollection
+    @JsonProperty("primary_muscles")
     private List<String> primaryMuscles;
 
     @ElementCollection
+    @JsonProperty("secondary_muscles")
     private List<String> secondaryMuscles;
 
     @ElementCollection
     private List<String> equipment;
 
     @ElementCollection
+    @Column(columnDefinition = "TEXT")
+    @JsonProperty("instructions")
     private List<String> instructions;
 
     //============ Constructor====================
