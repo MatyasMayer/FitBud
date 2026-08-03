@@ -1,5 +1,6 @@
 package cz.fitbud.entity.routine;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import cz.fitbud.entity.workout.WorkoutExercise;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.*;
@@ -11,6 +12,7 @@ import java.util.List;
 @Entity
 public class Routine {
 
+    @JsonProperty("name")
     private String name;
 
     @Id
