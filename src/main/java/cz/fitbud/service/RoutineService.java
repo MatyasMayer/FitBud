@@ -19,6 +19,8 @@ public class RoutineService {
         return routineRepository.save(routine);
     }
 
+    public void deleteRoutine(String routineName){ routineRepository.delete(routineRepository.findRoutineByNameContainingIgnoreCase(routineName)); }
+
     public List<Routine> getAllRoutines(){
         return routineRepository.findAll();
     }

@@ -6,4 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RoutineRepository extends JpaRepository<Routine,Long> {
+
+    public Routine findRoutineByNameContainingIgnoreCase(String name);
 }
